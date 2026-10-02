@@ -8,4 +8,4 @@ Objective: Automate resume filtering to match candidates with job openings.
 - Extracts skills and experience from resume
 - Calculates match score with job description
 GitHub: muqaddas-5-zahra/internee-pk-project
-Phir wahi *Commit changes... > Commit changes* kar dein.
+Phir wahi *Commit changes... > 
