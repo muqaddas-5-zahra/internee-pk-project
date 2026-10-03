@@ -1,8 +1,33 @@
-Platform,Avg_Price_PKR,Num_Courses,Free_Courses_Pct,User_Rating,Certificate
-Internee.pk,0,35,100,4.8,Yes
-Coursera,8500,7000,15,4.7,Yes-Paid
-Udemy,4500,210000,10,4.5,Yes-Paid
-edX,12000,3500,20,4.6,Yes-Paid
-LinkedIn Learning,6500,16000,5,4.4,Yes-Paid
-Alison,0,4000,100,4.2,Yes-Paid
-Great Learning,3000,1000,30,4.3,Yes
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load competitor data
+df = pd.read_csv('competitor_data.csv')
+
+# Create dashboard
+sns.set(style="whitegrid")
+plt.figure(figsize=(12, 8))
+
+plt.subplot(2,2,1)
+sns.barplot(x='Platform', y='Avg_Price_PKR', data=df, palette='viridis')
+plt.xticks(rotation=30)
+plt.title('Pricing Comparison (PKR)')
+
+plt.subplot(2,2,2)
+sns.barplot(x='Platform', y='User_Rating', data=df, palette='magma')
+plt.xticks(rotation=30)
+plt.title('User Rating')
+
+plt.subplot(2,2,3)
+sns.barplot(x='Platform', y='Num_Courses', data=df, palette='cool')
+plt.xticks(rotation=30)
+plt.yscale('log')
+plt.title('Num Courses (log scale)')
+
+plt.tight_layout()
+plt.savefig('benchmarking_dashboard.png')
+plt.show()
+
+print("Dashboard generated successfully")
+print("\nInsight: Internee.pk is 100% Free with 4.8 rating - strong USP vs paid competitors")
